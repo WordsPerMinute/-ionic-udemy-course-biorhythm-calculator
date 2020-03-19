@@ -22,6 +22,9 @@ function App() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
+        {birthDate &&
+          <BiorhythmCard birthDate={birthDate} targetDate={targetDate} />
+        }
         <IonItem>
           <IonLabel position="stacked">Date of Birth:</IonLabel>
           <IonDatetime displayFormat="D MMM YYYY"
@@ -29,7 +32,6 @@ function App() {
             onIonChange={(event) => setBirthDate(event.detail.value)}
           />
         </IonItem>
-        <BiorhythmCard targetDate={targetDate} />
       </IonContent>
     </IonApp>
   );
