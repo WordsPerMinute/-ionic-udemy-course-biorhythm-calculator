@@ -1,6 +1,7 @@
 import {
   IonApp,
   IonContent,
+  IonDatetime,
   IonHeader,
   IonInput,
   IonItem,
@@ -12,6 +13,7 @@ import React, { useState } from 'react';
 
 function App() {
   const [name, setName] = useState('');
+  const [birthDate, setBirthDate] = useState('');
   return (
     <IonApp>
       <IonHeader>
@@ -28,9 +30,13 @@ function App() {
         </IonItem>
         <IonItem>
           <IonLabel position="stacked">Date of Birth:</IonLabel>
-          <IonInput />
+          <IonDatetime displayFormat="D MMM YYYY"
+            value={birthDate}
+            onIonChange={(event) => setBirthDate(event.detail.value)}
+          />
         </IonItem>
         <p>Name: {name}</p>
+        <p>Date of Birth: {birthDate}</p>
       </IonContent>
     </IonApp>
   );
