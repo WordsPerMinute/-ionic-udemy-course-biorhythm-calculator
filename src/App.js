@@ -1,9 +1,12 @@
 import {
   IonApp,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
   IonContent,
   IonDatetime,
   IonHeader,
-  IonInput,
   IonItem,
   IonLabel,
   IonTitle,
@@ -12,7 +15,6 @@ import {
 import React, { useState } from 'react';
 
 function App() {
-  const [name, setName] = useState('');
   const [birthDate, setBirthDate] = useState('');
   return (
     <IonApp>
@@ -23,20 +25,22 @@ function App() {
       </IonHeader>
       <IonContent className="ion-padding">
         <IonItem>
-          <IonLabel position="stacked">Name:</IonLabel>
-          <IonInput value={name}
-            onIonChange={(event) => setName(event.detail.value)}
-          />
-        </IonItem>
-        <IonItem>
           <IonLabel position="stacked">Date of Birth:</IonLabel>
           <IonDatetime displayFormat="D MMM YYYY"
             value={birthDate}
             onIonChange={(event) => setBirthDate(event.detail.value)}
           />
         </IonItem>
-        <p>Name: {name}</p>
-        <p>Date of Birth: {birthDate}</p>
+        <IonCard className="ion-text-center">
+          <IonCardHeader>
+            <IonCardTitle>18 Feb 2020</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <p>Physical: 83%</p>
+            <p>Emotional: 34%</p>
+            <p>Intellectual: 52%</p>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonApp>
   );
